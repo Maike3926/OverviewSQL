@@ -75,3 +75,68 @@ A instrução básica de busca é composta por `SELECT` (colunas) e `FROM` (tabe
 2.  **WHERE** (O que deve ser filtrado?)
 3.  **SELECT** (O que deve ser exibido?)
 4.  **ORDER BY** (Como deve ser organizado?)
+
+---
+
+## 7. Tipos de Dados Comuns
+* **Numéricos:** `INT` (inteiros), `DECIMAL` (frações).
+* **Texto:** `CHAR` (fixo), `VARCHAR` (variável).
+* **Data/Hora:** `DATE` (YYYY-MM-DD), `TIME` (HH:MM:SS).
+
+---
+
+## 8. Fundamentos de Estruturas de Dados
+Uma estrutura de dados é projetada para organizar e armazenar dados de maneira eficiente. Cada uma possui pontos fortes e fracos, sendo que a escolha ideal muitas vezes "depende" do contexto do problema.
+
+### Notação Big O e Complexidade
+Utilizamos a notação Big O para medir o desempenho de algoritmos de forma justa, ignorando variações de hardware. Em vez de cronometrar segundos, contamos quantos passos o algoritmo executa.
+
+Geralmente focamos no **pior caso** (*worst-case scenario*), pois ele define o limite superior de tempo que uma operação pode levar conforme a entrada cresce.
+
+| Big O | Nome | Padrão de Crescimento |
+| :--- | :--- | :--- |
+| $O(1)$ | Constante | Mesmo tempo, independente da entrada. |
+| $O(\log N)$ | Logarítmica | Cresce muito lentamente. |
+| $O(N)$ | Linear | Cresce proporcionalmente à entrada. |
+| $O(N \log N)$ | Linearitmica | Crescimento mais rápido que o linear. |
+| $O(N^2)$ | Quadrática | O crescimento aumenta muito rapidamente. |
+
+
+
+---
+
+## 9. Listas Encadeadas (Linked Lists)
+Diferente dos arrays que possuem tamanho fixo, uma lista encadeada armazena sequências usando "nós". Cada nó guarda o dado e a localização (referência) do próximo nó.
+
+### Vantagens e Desvantagens
+* **Vantagem:** Funciona bem em memórias fragmentadas e permite inserção/remoção simples sem reorganizar toda a lista.
+* **Desvantagem:** Cada nó consome memória extra para o ponteiro. O acesso é custoso pois é necessário percorrer a lista até o elemento desejado.
+
+### Tipos Principais
+* **Simples:** Cada nó tem uma referência para o próximo; o último aponta para um valor inválido.
+* **Dupla:** Cada nó aponta para o próximo e para o anterior. Permite remover um nó em $O(1)$ conhecendo apenas seu ponteiro.
+
+
+
+---
+
+## 10. Pilha (Stack)
+É um tipo abstrato de dado que segue a lógica **LIFO** (*Last In, First Out*).
+
+* **Operações principais ($O(1)$):**
+    * **push:** Adiciona um item ao topo.
+    * **pop:** Remove o item do topo.
+    * **peek:** Observa o topo sem remover.
+* **Suporte:** A lista encadeada é considerada a estrutura ideal para implementar pilhas.
+
+
+
+---
+
+## 11. Fila (Queue)
+Segue a lógica **FIFO** (*First In, First Out*) — o primeiro que entra é o primeiro que sai.
+
+* **Operações principais:**
+    * **enqueue (add):** Adiciona ao final da fila.
+    * **dequeue (remove):** Remove do início da fila.
+    * **peek:** Obtém o item da frente sem removê-lo.
