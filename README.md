@@ -140,3 +140,62 @@ Segue a lógica **FIFO** (*First In, First Out*) — o primeiro que entra é o p
     * **enqueue (add):** Adiciona ao final da fila.
     * **dequeue (remove):** Remove do início da fila.
     * **peek:** Obtém o item da frente sem removê-lo.
+
+    ---
+
+## 12. Operações SET (Conjuntos)
+As operações SET combinam resultados de duas ou mais consultas (`SELECT`) em um único conjunto. As consultas devem ter o mesmo número de colunas e tipos de dados compatíveis.
+
+* **UNION:** Combina os resultados e remove as duplicatas.
+* **UNION ALL:** Combina os resultados e mantém as duplicatas (mais rápido que o `UNION`).
+* **INTERSECT:** Retorna apenas as linhas comuns a ambas as consultas.
+* **EXCEPT (ou MINUS):** Retorna as linhas da primeira consulta que não estão na segunda.
+
+---
+
+## 13. Funções em Linha (Scalar Functions)
+Operam em um único valor de entrada e retornam um único valor de saída, aplicadas linha por linha.
+
+### Principais Categorias:
+* **String (Texto):**
+  * `UPPER(coluna)`: Converte para maiúsculo.
+  * `LOWER(coluna)`: Converte para minúsculo.
+  * `LENGTH(coluna)`: Retorna o número de caracteres.
+  * `SUBSTRING(coluna, inicio, tamanho)`: Extrai parte do texto.
+* **Matemáticas:**
+  * `ROUND(numero, casas_decimais)`: Arredonda um valor.
+  * `ABS(numero)`: Retorna o valor absoluto.
+* **Data:**
+  * `CURRENT_DATE` ou `NOW()`: Retorna a data/hora atuais.
+  * `EXTRACT(MONTH FROM data)`: Extrai uma parte da data.
+
+---
+
+## 14. Funções de Agregação
+Operam em um conjunto de valores (várias linhas) e retornam um único valor resumido.
+
+* **COUNT():** Conta o número de linhas ou valores não nulos. `COUNT(*)` conta todas as linhas.
+* **SUM():** Calcula a soma total.
+* **AVG():** Calcula a média.
+* **MAX():** Retorna o maior valor.
+* **MIN():** Retorna o menor valor.
+
+> **Nota:** As funções de agregação (exceto `COUNT(*)`) ignoram valores `NULL`.
+
+---
+
+## 15. Agrupamentos: Cláusulas GROUP BY e HAVING
+O `GROUP BY` é utilizado com funções de agregação para agrupar linhas com os mesmos valores.
+
+* **Uso obrigatório:** Qualquer coluna no `SELECT` que não utilize uma função de agregação deve ser declarada obrigatoriamente no `GROUP BY`.
+
+### Filtrando Grupos com HAVING
+O `WHERE` filtra linhas antes do agrupamento. O **`HAVING`** filtra os dados depois do agrupamento.
+
+**Ordem de Execução:**
+1. `FROM`
+2. `WHERE` (Filtra linhas)
+3. `GROUP BY` (Agrupa)
+4. `HAVING` (Filtra grupos)
+5. `SELECT` (Seleciona colunas)
+6. `ORDER BY` (Ordena resultado)
